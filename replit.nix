@@ -1,6 +1,7 @@
 { pkgs }: {
 	deps = [
-		pkgs.yarn
+  pkgs.tree
+  pkgs.yarn
   pkgs.postgresql
   pkgs.nodejs-16_x
         pkgs.nodePackages.typescript-language-server
