@@ -1,0 +1,14 @@
+{
+  "name": "Whoosh",
+  "description": "View docs in your repl!",
+  "version": "0",
+  "tags": ["editor", "docs", "utilities"],
+  "icon": "icon.png",
+  "supportEmail": "whoosh@dillonb07.studio",
+  "website": "https://whooshdocs.repl.co",
+  "tools": [{
+    "handler": ".",
+    "name": "Whoosh",
+    "icon": "tools.png"
+  }]
+}

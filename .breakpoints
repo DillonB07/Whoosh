@@ -1,0 +1,12 @@
+{
+  "files": {
+    "server/middleware/auth.ts": [
+      {
+        "id": "f88b3a7a-ccc8-42a5-a7f3-78a4125eccfe",
+        "line": 2,
+        "version": 1,
+        "index": 39
+      }
+    ]
+  }
+}
