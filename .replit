@@ -1,4 +1,4 @@
-hidden = [".config", ".next", ".swc", "next-env.d.ts", "next.config.mjs", "tsconfig.json", "tsconfig.tsbuildinfo", "yarn-error.log"]
+hidden = [".config", ".next", ".swc", "next-env.d.ts", "next.config.mjs", "tsconfig.json", "tsconfig.tsbuildinfo", "yarn-error.log", '.github']
 run = "npm run dev"
 
 [[hints]]
