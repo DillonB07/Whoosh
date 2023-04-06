@@ -71,8 +71,9 @@ support = true
       type = "pwa-node"
 
 [deployment]
-build = ["sh", "-c", "npm run build"]
-run = ["sh", "-c", "npm run start"]
+build = ["sh", "-c", "yarn rui && yarn build"]
+run = ["sh", "-c", "yarn start"]
+ignorePorts = false
 
 [auth]
 pageEnabled = false

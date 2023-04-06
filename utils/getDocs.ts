@@ -1,26 +1,46 @@
-import fs from 'fs';
+import fs from "fs";
 
-interface PackageLanguage {
-  language: string;
+interface Category {
+  category: string;
   packages: string[];
 }
 
-export function getPackages(): PackageLanguage[] {
-  const docsDirectory = './docs';
-  const languageDirectories = fs.readdirSync(docsDirectory, { withFileTypes: true })
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name);
+interface Data {
+  language: string;
+  categories: Category[];
+}
 
-  const languages: PackageLanguage[] = languageDirectories.map((languageDirectory) => {
-    const packageDirectory = `${docsDirectory}/${languageDirectory}`;
-    const packages = fs.readdirSync(packageDirectory, { withFileTypes: true })
-      .filter(dirent => dirent.isDirectory())
-      .map(dirent => dirent.name);
-    return {
-      language: languageDirectory,
-      packages,
-    };
-  });
+export function getPackages(): Data[] {
+  const docsDirectory = "./docs";
+  const languageDirectories = fs
+    .readdirSync(docsDirectory, { withFileTypes: true })
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name);
 
-  return languages;
+  const packageLanguages: Data[] = languageDirectories.map(
+    (languageDirectory) => {
+      const categoryDirectory = `${docsDirectory}/${languageDirectory}`;
+      const categoryNames = fs
+        .readdirSync(categoryDirectory, { withFileTypes: true })
+        .filter((dirent) => dirent.isDirectory())
+        .map((dirent) => dirent.name);
+      const categories: Category[] = categoryNames.map((categoryName) => {
+        const packageDirectory = `${categoryDirectory}/${categoryName}`;
+        const packages = fs
+          .readdirSync(packageDirectory, { withFileTypes: true })
+          .filter((dirent) => dirent.isDirectory())
+          .map((dirent) => dirent.name);
+        return {
+          category: categoryName,
+          packages,
+        };
+      });
+      return {
+        language: languageDirectory,
+        categories,
+      };
+    }
+  );
+
+  return packageLanguages;
 }

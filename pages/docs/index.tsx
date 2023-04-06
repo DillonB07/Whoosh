@@ -1,17 +1,16 @@
-
-import React, { useState } from 'react';
-import { View, Text, Button, rcss } from 'node_modules';
-import { Tabs, TabList, Tab, TabPanels, TabPanel } from '@reach/tabs';
-import '@reach/tabs/styles.css';
-import Link from 'next/link';
-import {getPackages} from '../../utils/getDocs'
+import React, { useState } from "react";
+import { View, Text, Button, rcss } from "node_modules";
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@reach/tabs";
+import "@reach/tabs/styles.css";
+import Link from "next/link";
+import { getPackages } from "../../utils/getDocs";
 //@ts-ignore
 import { useTheme } from "@replit/extensions/react";
 
-const Home: React.FC = ({packages}) => {
+const Home: React.FC = ({ packages }) => {
   const theme = useTheme();
   const values = theme?.values?.global;
-    console.log(values)
+  console.log(values);
   return (
     <View
       css={[
@@ -29,29 +28,36 @@ const Home: React.FC = ({packages}) => {
       </Text>
       <Tabs
         style={{
-          color: 'white',
+          color: "white",
           background: values?.backgroundHigher,
           borderRadius: 8,
-          padding: 8
+          padding: 8,
         }}
-          >
+      >
         <TabList>
-            {packages.map(language => (
-              <Tab>{language.language}</Tab>
-            ))}
+          {packages.map((language) => (
+            <Tab key={language.language}>{language.language}</Tab>
+          ))}
         </TabList>
         <TabPanels style={{ padding: 20 }}>
-            {packages.map(language => (
-              <TabPanel>
-                  <ul>
-                  {language.packages.map(pkg => (
-                  <li key={pkg}>
-                      {pkg}
+          {packages.map((language) => (
+            <TabPanel key={language}>
+              <ul>
+                {language.categories.map((category) => (
+                  <li key={category.category}>
+                      <h4>
+                        {category.category}
+                      </h4>
+                      <ul>
+                          {category.packages.map(pkg => (
+                      <li key={pkg}>{pkg}</li>
+                          ))}
+                      </ul>
                   </li>
-                  ))}
-                  </ul>
-              </TabPanel>
-            ))}
+                ))}
+              </ul>
+            </TabPanel>
+          ))}
         </TabPanels>
       </Tabs>
       <Link href="/docs">

@@ -34,12 +34,16 @@ ${mappedColors.join("\n")}
       </Head>
       <Rui theme="dark">
         <Surface background="default" elevated className="body">
-          {status === "loading" ? <View>
+          {status === "loading" ? (
+            <View>
               <Text>Loading...</Text>
-            </View> : null}
-          {status === "error" ? <View>
+            </View>
+          ) : null}
+          {status === "error" ? (
+            <View>
               <Text>Error: {error.message}</Text>
-            </View> : null}
+            </View>
+          ) : null}
           {status === "ready" ? <Component {...pageProps} /> : null}
         </Surface>
       </Rui>
