@@ -1,11 +1,11 @@
 import fs from "fs";
 
-interface Category {
+export interface Category {
   category: string;
   packages: string[];
 }
 
-interface Data {
+export interface Data {
   language: string;
   categories: Category[];
 }

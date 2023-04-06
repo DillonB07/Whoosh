@@ -3,9 +3,13 @@ import { View, Text, Button, rcss } from "node_modules";
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from "@reach/tabs";
 import "@reach/tabs/styles.css";
 import Link from "next/link";
-import { getPackages } from "../../utils/getDocs";
+import { getPackages, Data } from "../../utils/getDocs";
 //@ts-ignore
 import { useTheme } from "@replit/extensions/react";
+
+interface Props {
+  packages: Data[];
+}
 
 const Home: React.FC = ({ packages }) => {
   const theme = useTheme();
@@ -41,7 +45,7 @@ const Home: React.FC = ({ packages }) => {
         </TabList>
         <TabPanels style={{ padding: 20 }}>
           {packages.map((language) => (
-            <TabPanel key={language}>
+            <TabPanel key={`pkglist-${language.language}`}>
               <ul>
                 {language.categories.map((category) => (
                   <li key={category.category}>
