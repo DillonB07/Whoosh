@@ -11,7 +11,7 @@ interface Props {
   packages: Data[];
 }
 
-const Home: React.FC = ({ packages }) => {
+const Home: React.FC<Props> = ({ packages }) => {
   const theme = useTheme();
   const values = theme?.values?.global;
   console.log(values);
