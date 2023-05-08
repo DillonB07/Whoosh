@@ -107,7 +107,7 @@ const Home: React.FC = () => {
         </View>
       </motion.div>
       <motion.div layout>
-        <Surface elevated style={{ width: true ? '80vw' : 'auto', height: true ? '70vh' : 'auto', maxWidth: '800px' }} css={[rcss.m(8), rcss.borderRadius(8)]} >
+        <Surface elevated style={{ width: searchText.length != 0 ? '80vw' : 'auto', height: searchText.length != 0 ? '70vh' : 'auto', maxWidth: '800px' }} css={[rcss.m(8), rcss.borderRadius(8)]} >
           <motion.div
             style={{
               display: "flex",
