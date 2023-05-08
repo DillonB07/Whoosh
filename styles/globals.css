@@ -114,6 +114,7 @@ body {
   background: var(--background-default);
   font-family: var(--font-family-default);
   color: var(--foreground-default);
+  font-size: var(--font-size-default);
 }
 
 .body {
@@ -138,4 +139,8 @@ a {
   flex-direction: column;
   height: 100vh;
   width: 100vw;
+}
+
+[data-reach-tab][data-selected] {
+    border-bottom-color: var(--accent-primary-default) !important;
 }

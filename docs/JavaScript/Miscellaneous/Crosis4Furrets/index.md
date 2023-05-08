@@ -1,2 +1,0 @@
-# Crosis4Furrets
-

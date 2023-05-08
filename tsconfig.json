@@ -19,16 +19,21 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "jsxImportSource": "@emotion/react",
     "baseUrl": ".",
     "esModuleInterop": true,
     "paths": {
-			"@models/*": ["models/*"],
-		}
+      "@models/*": [
+        "models/*"
+      ]
+    }
   },
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node",
-    "require": ["tsconfig-paths/register"]
+    "require": [
+      "tsconfig-paths/register"
+    ]
   },
   "include": [
     "next-env.d.ts",

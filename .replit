@@ -1,5 +1,5 @@
 hidden = [".config", ".next", ".swc", "next-env.d.ts", "next.config.mjs", "tsconfig.json", "tsconfig.tsbuildinfo", "yarn-error.log", '.github']
-run = "npm run dev"
+run = "yarn dev"
 
 [[hints]]
 regex = "Error \\[ERR_REQUIRE_ESM\\]"
@@ -78,3 +78,7 @@ ignorePorts = false
 [auth]
 pageEnabled = false
 buttonEnabled = false
+
+[extension]
+isExtension = true
+extensionId = "whoosh"
