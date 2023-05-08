@@ -6,6 +6,7 @@ import * as icons from "../icons";
 import Link from "next/link";
 import Fuse from "fuse.js";
 import { motion } from "framer-motion";
+import LoadingIcon from "icons/Loading";
 
 
 const DocsetCard: React.FC<docsetItemType> = ({ name, version, downloaded }) => (
@@ -120,7 +121,7 @@ const Home: React.FC = () => {
             }}
             layout
           >
-            {pkgsLoaded ? (
+            {pkgsLoaded && (
               <>
                 {filteredPackages.map((pkg, i) => (
                   <DocsetCard
@@ -131,11 +132,17 @@ const Home: React.FC = () => {
                   />
                 ))}
               </>
-            ) : (
-              <Text>{loadingMessage}</Text>
             )}
           </motion.div>
         </Surface>
+        {!pkgsLoaded && (
+          <motion.div css={[rcss.flex.column, rcss.center, {gap: 8}]}>
+            <LoadingIcon width={50} height={50} />
+            <Text variant="subheadBig" color="dimmer">
+              {loadingMessage}
+            </Text>
+          </motion.div>
+        )}
       </motion.div>
     </View>
   );
