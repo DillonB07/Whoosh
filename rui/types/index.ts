@@ -1,4 +1,52 @@
 /* ****************************************************************
+ * * GraphQL Types
+ **************************************************************** */
+
+// User
+export interface User {
+  id: number;
+  username: string;
+  image: string;
+  bio?: string;
+
+  // SocialUserData fragment
+  url?: string;
+  socials?: Array<UserSocial>;
+  firstName?: string;
+  lastName?: string;
+  displayName?: string;
+  fullName?: string;
+  followCount?: number;
+  followerCount?: number;
+
+  // RolesUserData fragment
+  roles?: Array<UserRole>;
+}
+
+export interface UserSocial {
+  id: number;
+  url: string;
+  type: UserSocialType;
+}
+
+export enum UserSocialType {
+  twitter = "twitter",
+  github = "github",
+  linkedin = "linkedin",
+  website = "website",
+  youtube = "youtube",
+  twitch = "twitch",
+  facebook = "facebook",
+  discord = "discord",
+}
+export interface UserRole {
+  id: number;
+  name: string;
+  key: string;
+  tagline: string;
+}
+
+/* ****************************************************************
  * * Theme Types
  **************************************************************** */
 export type CssColor = string;
