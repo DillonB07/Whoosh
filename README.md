@@ -10,7 +10,6 @@ This project is extremely large and will take up a large portion of my time. If 
 
 ## Contributing
 
-If you want to help with the project, I would really appreciate it!
-I would love help with parsing documentation and converting it into Markdown to be used by the extension as that will be extremely time consuming (and boring)
+If you want to help with the project, feel free to [file an issue](https://github.com/DillonB07/Whoosh/issues) or create a PR.
 
 See [CONTRIBUTING.md](#CONTRIBUTING.md) for more information on contributing.

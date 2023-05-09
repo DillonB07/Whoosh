@@ -1,5 +1,5 @@
 import { useThemeValues } from "@replit/extensions-react";
-import {replitDarkTokens as replitDark} from '../themes/replitDark'
+import { replitDarkTokens as replitDark } from "../themes/replitDark";
 import { globalTokens, rcss } from "../themes";
 import React from "react";
 import { Surface } from "./Surface";
@@ -35,7 +35,7 @@ export default function Rui({ children }: any) {
           rcss.colWithGap(8),
           rcss.center,
           rcss.minWidth("100vw"),
-          rcss.minHeight("100vh")
+          rcss.minHeight("100vh"),
         ]}
       >
         {children}
