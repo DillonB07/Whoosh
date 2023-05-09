@@ -85,14 +85,11 @@ const Home: React.FC = () => {
   const [packages, setPackages] = useState<docsetItemType[] | undefined>(
     undefined
   );
-  const [loadingMessage, setLoadingMessage] = useState<string>(
-    "Loading package list..."
-  );
-
   const [searchText, setSearchText] = useState("");
   const [filteredPackages, setFilteredPackages] = useState<docsetItemType[]>(
     []
   );
+  const [loadFailed, setLoadFailed] = useState(false);
 
   useEffect(() => {
     getPackages().then((packages) => {
@@ -100,7 +97,7 @@ const Home: React.FC = () => {
         setPackages(packages);
         setPkgsLoaded(true);
       } else {
-        setLoadingMessage("Failed to load packages.");
+        setLoadFailed(true);
       }
     });
   }, []);
@@ -178,10 +175,13 @@ const Home: React.FC = () => {
         </Surface>
         {!pkgsLoaded && (
           <motion.div css={[rcss.flex.column, rcss.center, { gap: 8 }]}>
-            <LoadingIcon width={50} height={50} />
-            <Text variant="subheadBig" color="dimmer">
-              {loadingMessage}
-            </Text>
+            {!loadFailed ? <LoadingIcon width={50} height={50} /> : <icons.WifiOff width={50} height={50} />}
+
+              {!loadFailed ?  (<Text variant="subheadBig" color="dimmer" multiline>Loading package list</Text>) : (
+                <Text variant="text" color="dimmer" multiline>Could not connect to server.<br/>
+                Make sure *.repl.co domains are not blocked on your network
+                </Text>
+                )}
           </motion.div>
         )}
       </motion.div>
