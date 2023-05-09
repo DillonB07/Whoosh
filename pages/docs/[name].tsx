@@ -1,3 +1,5 @@
+import DocView from "components/DocView";
+import Sidebar from "components/Sidebar";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { View, rcss } from "rui";
@@ -23,13 +25,12 @@ const DocsPage: React.FC = () => {
     });
   }, []);
   return (
-    <>
-      <View css={[rcss.flex.row]}>
-        <View css={[rcss.align.start]}>Sidebar</View>
-        <View>Content</View>
-      </View>
-    </>
+    <View css={[rcss.flex.row]}>
+      <Sidebar pkgName={pkgName} packages={packages} />
+      <DocView pkgName={pkgName} />
+    </View>
   );
+
 };
 
 export default DocsPage;
