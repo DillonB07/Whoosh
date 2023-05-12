@@ -32,7 +32,7 @@ const PackageSearchBar = ({ packages, setFilteredPackages }: { packages: docsetI
             onChange={handleSearch}
             placeholder={packages ? "Search docsets..." : 'Loading docsets...'}
             onClear={clearSearch}
-            disabled={packages ? true : false}
+            disabled={!packages ? true : false}
         />
     );
 };
