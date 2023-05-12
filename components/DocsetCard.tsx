@@ -1,4 +1,4 @@
-import { Link } from "icons";
+import  Link from "next/link";
 import { Pill, Surface, Text, Tooltip, View, interactive, rcss, tokens } from "rui";
 import { docsetItemType } from "utils/getDocs";
 import * as icons from '../icons';
