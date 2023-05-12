@@ -107,7 +107,7 @@ const Home: React.FC = () => {
           <motion.div css={[rcss.flex.column, rcss.center, { gap: 8 }]}>
             {!loadFailed ? <LoadingIcon width={50} height={50} /> : <icons.WifiOff width={50} height={50} />}
 
-            {!loadFailed ? (<Text variant="text" color="dimmer" multiline>Loading package list</Text>) : (
+            {!loadFailed ? (<Text variant="subheadBig" color="dimmer" multiline>Loading package list</Text>) : (
               <Text variant="text" color="dimmer" multiline>Could not connect to server.<br />
                 Make sure *.repl.co domains are not blocked on your network
               </Text>
