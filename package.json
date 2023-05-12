@@ -8,7 +8,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --ignore-path .eslintignore --write \"**/*.{ts,tsx}\""
+    "format": "prettier --ignore-path .eslintignore --write \"**/*.{ts,tsx}\"",
+    "rui": "cp shared/rui/index.js node_modules/"
   },
   "dependencies": {
     "@babel/preset-react": "^7.18.6",
