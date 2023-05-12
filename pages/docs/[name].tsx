@@ -6,27 +6,27 @@ import { View, rcss } from "rui";
 import { docsetItemType, getPackages } from "utils/getDocs";
 
 const DocsPage: React.FC = () => {
-  const pkgName = useRouter().query.name;
+  const pkgName = useRouter()?.query?.name as string | undefined;
   const [pkgsLoaded, setPkgsLoaded] = useState(false);
   const [packages, setPackages] = useState<docsetItemType[] | undefined>(
     undefined
   );
-  const [loadingMessage, setLoadingMessage] = useState<string>(
-    "Loading package list..."
-  );
+  const [loadFailed, setLoadFailed] = useState(false);
+
   useEffect(() => {
     getPackages().then((packages) => {
       if (packages !== undefined) {
         setPackages(packages);
         setPkgsLoaded(true);
       } else {
-        setLoadingMessage("Failed to load packages.");
+        setLoadFailed(true);
       }
     });
   }, []);
+  const version = packages?.find((pkg) => pkg.name === pkgName)?.version;
   return (
-    <View css={[rcss.flex.row]}>
-      <Sidebar pkgName={pkgName} packages={packages} />
+    <View css={[rcss.flex.row, rcss.rowWithGap(8), rcss.width('100vw')]} id="test-2-362">
+      <Sidebar pkgName={pkgName} packages={packages} version={version} />
       <DocView pkgName={pkgName} />
     </View>
   );

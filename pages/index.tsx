@@ -9,10 +9,10 @@ import {
 import { getPackages } from "../utils/getDocs";
 import type { docsetItemType } from "../utils/getDocs";
 import * as icons from "../icons";
-import Fuse from "fuse.js";
 import { motion } from "framer-motion";
 import LoadingIcon from "icons/Loading";
 import DocsetCard from "components/DocsetCard";
+import PackageSearchBar from "components/PackageSearchBar";
 
 const Home: React.FC = () => {
   const [pkgsLoaded, setPkgsLoaded] = useState(false);
@@ -36,25 +36,6 @@ const Home: React.FC = () => {
     });
   }, []);
 
-  const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const text = event.target.value;
-    setSearchText(text);
-    if (!pkgsLoaded) return;
-
-    const options = {
-      keys: ["name"],
-      threshold: 0.3, // adjust as needed
-    };
-    const fuse = new Fuse(packages!, options);
-    const results = fuse.search(text);
-    setFilteredPackages(results.map((result) => result.item));
-  };
-
-  const clearSearch = () => {
-    setSearchText("");
-    setFilteredPackages([]);
-  };
-
   return (
     <View css={[rcss.colWithGap(8), rcss.p(16), rcss.textAlign.center]}>
       <motion.div layout css={[rcss.m(8)]}>
@@ -63,11 +44,9 @@ const Home: React.FC = () => {
           <Text color="dimmer" variant="small" multiline>
             Search for a language or library
           </Text>
-          <SearchBar
-            value={searchText}
-            onChange={handleSearch}
-            placeholder="Search docsets..."
-            onClear={clearSearch}
+          <PackageSearchBar
+            packages={packages}
+            setFilteredPackages={setFilteredPackages}
           />
         </View>
       </motion.div>
