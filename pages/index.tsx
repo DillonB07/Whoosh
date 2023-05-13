@@ -47,6 +47,8 @@ const Home: React.FC = () => {
           <PackageSearchBar
             packages={packages}
             setFilteredPackages={setFilteredPackages}
+            setSearchText={setSearchText}
+            searchText={searchText}
           />
         </View>
       </motion.div>

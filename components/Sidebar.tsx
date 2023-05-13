@@ -8,6 +8,7 @@ const Sidebar = ({ pkgName, version, packages }: { pkgName: string | undefined, 
     const [filteredPackages, setFilteredPackages] = useState<docsetItemType[]>(
         []
     );
+    const [searchText, setSearchText] = useState("");
     return (
         <Surface elevated css={[rcss.flex.column, {
             gap: '10px',
@@ -23,7 +24,7 @@ const Sidebar = ({ pkgName, version, packages }: { pkgName: string | undefined, 
                     <Text variant="headerDefault" >{pkgName}</Text>
                     <Text variant="small" color="dimmer" >{version}</Text>
                 </View>
-                <PackageSearchBar packages={packages} setFilteredPackages={setFilteredPackages} />
+                <PackageSearchBar packages={packages} setFilteredPackages={setFilteredPackages} searchText={searchText} setSearchText={setSearchText} />
             </View>
             <View css={[rcss.p(8), rcss.colWithGap(8), rcss.flex.grow(1), {
                 display: 'flex',

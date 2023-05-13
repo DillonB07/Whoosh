@@ -4,8 +4,7 @@ import { docsetItemType } from "utils/getDocs";
 import Fuse from "fuse.js";
 
 
-const PackageSearchBar = ({ packages, setFilteredPackages }: { packages: docsetItemType[] | undefined, setFilteredPackages: React.Dispatch<React.SetStateAction<docsetItemType[]>>; }) => {
-    const [searchText, setSearchText] = useState("");
+const PackageSearchBar = ({ packages, searchText, setFilteredPackages, setSearchText }: { packages: docsetItemType[] | undefined, searchText: string, setFilteredPackages: React.Dispatch<React.SetStateAction<docsetItemType[]>>, setSearchText: React.Dispatch<React.SetStateAction<string>>; }) => {
 
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
         const text = event.target.value;
